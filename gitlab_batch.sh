@@ -309,6 +309,28 @@ function removeDownInfo () {
     find ./ -type f -name 'getProject*' -delete
     find ./ -type f -name '*agination.txt' -delete
 }
+function groupZip () {
+    if [ -d "$tarName" ]; then
+        cd $tarName
+    else
+        mkdir $tarName
+    fi
+    jq -r '.[].name' ../getGroup.json | while read line; do
+        # 去除 \r
+        local name=$(toTrim $line)
+        if [ -d "../$name" ]; then
+            tar -czvf "$name.tar.gz" "../$name/" 
+        fi
+    done
+}
+function groupUnZip () {
+    cd $tarName
+    for file in ./*; do
+    if echo "$file" | grep -q -E '.tar.gz$'; then
+        tar -xzvf "$file" -C ./
+    fi
+    done
+}
 # 选择令牌方式
 while true
 do
@@ -337,7 +359,7 @@ reset () {
 while true
 do
 reset
-echo -e "clone所有项目,请输入1\n同步所有分支到本地,请输入2\n获取所有项目,请输入3\n查看分组,请输入4\n按组clone,请输入5\n按组同步所有分支到本地,请输入6\n查看当前目录文件大小,请输入7\n清除因clone下载存储到本地的内容,请输入8\n回到开始状态,请输入9"
+echo -e "clone所有项目,请输入1\n同步所有分支到本地,请输入2\n获取所有项目,请输入3\n查看分组,请输入4\n按组clone,请输入5\n按组同步所有分支到本地,请输入6\n查看当前目录文件大小,请输入7\n清除因clone下载存储到本地的内容,请输入8\n回到开始状态,请输入9\n按组压缩tar.gz,请输入10\n解压tar.gz,请输入11"
 read  putKey
     if [ $putKey = "1" ]; then
         from="project"
@@ -383,6 +405,12 @@ read  putKey
         fi
         done
         removeDownInfo
+        break
+        elif [ $putKey = "10" ]; then
+        groupZip
+        break
+        elif [ $putKey = "11" ]; then
+        groupUnZip
         break
         else
         echo "请输入正确的指令"
