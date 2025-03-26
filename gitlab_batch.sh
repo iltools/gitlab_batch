@@ -75,7 +75,7 @@ function eachPagination () {
         fi
         page=$[$i+1]
     done
-    echo "===============正在遍历每一页End=================="
+    echo "===============正在遍历每一页End================="
 }
 function getTotalPage () {
     echo "===============获取项目分页信息Begin================="
