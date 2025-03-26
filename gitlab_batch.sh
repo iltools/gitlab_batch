@@ -17,7 +17,7 @@ group_api="${domain}${api_prefix}/groups?page=${page}&per_page=${per_page}"
 group_project_api="${domain}${api_prefix}/groups/${group_project_id}/projects?page=${page}&per_page=${per_page}"
 from="project"
 tarName=tar_files
-# 配置，要可以使用命令8删除以下产生的信息
+# 配置，要可以使用命令8删除以下产生的信息 
 # 是否写入项目分页信息
 isWritePagination=1
 isWriteGroupNamePagination=1
