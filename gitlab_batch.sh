@@ -18,7 +18,7 @@ group_project_api="${domain}${api_prefix}/groups/${group_project_id}/projects?pa
 from="project"
 tarName=tar_files
 # 配置，要可以使用命令8删除以下产生的信息 
-# 是否写入项目分页信息
+# 是否写入项目分页信息 
 isWritePagination=1
 isWriteGroupNamePagination=1
 # 模拟clone，仅仅创建项目文件夹，创建分组, 创建文件夹
