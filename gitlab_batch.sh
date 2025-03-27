@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # gitlab右上角头像->偏好设置->访问令牌->勾上对应权限->复制access_token（一旦关闭，就找不到了）
-access_token='glpat-XXXXX'
+access_token='glpat-XXXXX' 
 # gitlab地址
 domain='http://192.1.0.XXX'
 api_prefix='/api/v4'
@@ -17,7 +17,7 @@ group_api="${domain}${api_prefix}/groups?page=${page}&per_page=${per_page}"
 group_project_api="${domain}${api_prefix}/groups/${group_project_id}/projects?page=${page}&per_page=${per_page}"
 from="project"
 tarName=tar_files
-# 配置，要可以使用命令8删除以下产生的信息
+# 配置，要可以使用命令8删除以下产生的信息 
 # 是否写入项目分页信息
 isWritePagination=1
 isWriteGroupNamePagination=1
