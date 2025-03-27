@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # gitlab右上角头像->偏好设置->访问令牌->勾上对应权限->复制access_token（一旦关闭，就找不到了）
-access_token='glpat-XXXXX' 
+access_token='glpat-XXXXX'
 # gitlab地址
 domain='http://192.1.0.XXX'
 api_prefix='/api/v4'
